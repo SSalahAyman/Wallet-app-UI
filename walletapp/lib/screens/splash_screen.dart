@@ -2,6 +2,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:walletapp/components/navbar.dart';
 import 'package:walletapp/screens/home_page.dart';
 
 class Splashscreen extends StatelessWidget {
@@ -17,6 +18,9 @@ class Splashscreen extends StatelessWidget {
         width: width,
         height: height,
         child: AnimatedSplashScreen(
+          duration: 3000,
+          animationDuration: Duration(seconds: 1),
+          splashTransition: SplashTransition.fadeTransition,
           splashIconSize: height,
           splash: Container(
             width: width,
@@ -78,23 +82,23 @@ class Splashscreen extends StatelessWidget {
                   child: Container(
                     child: Column(
                       children: [
-                        Text("My Wallet App , powered by"),
+                        const Text(
+                          "My Wallet App , powered by",
+                          style: TextStyle(fontSize: 14),
+                        ),
                         SizedBox(
                           height: height * 0.02,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              "assets/icons/paypal.png",
-                              width: width * 0.12,
+                            Lottie.asset(
+                              "assets/images/animations/paybal.json",
+                              width: width * 0.3,
                             ),
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
-                            Image.asset(
-                              "assets/icons/visa.png",
-                              width: width * 0.12,
+                            Lottie.asset(
+                              "assets/images/animations/visaa.json",
+                              width: width * 0.3,
                             ),
                           ],
                         )
@@ -105,7 +109,7 @@ class Splashscreen extends StatelessWidget {
               ],
             ),
           ),
-          nextScreen: Homepage(),
+          nextScreen: Navbar(),
         ),
       ),
     );
