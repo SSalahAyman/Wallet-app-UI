@@ -15,7 +15,7 @@ class _NavbarState extends State<Navbar> {
   static late double height;
   int index = 0;
 
-  static List<Widget> pages = const [
+  static List<Widget> pages = [
     Homepage(),
     Cartpage(),
     Settingspage(),
