@@ -58,6 +58,7 @@ class Homepage extends StatelessWidget {
           width: width,
           height: height,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: height * 0.02,
@@ -68,7 +69,7 @@ class Homepage extends StatelessWidget {
               */
               const Appbar(),
               Padding(
-                padding: const EdgeInsets.only(right: 70, top: 6),
+                padding: const EdgeInsets.only(right: 70, top: 6, left: 15),
                 child: Text(
                   "manage your banking card with my wallet app",
                   style: TextStyle(
@@ -99,13 +100,16 @@ class Homepage extends StatelessWidget {
               /*
               smooth page indicator
               */
-              SmoothPageIndicator(
-                axisDirection: Axis.horizontal,
-                controller: pageviewcontroller,
-                count: cards.length,
-                effect: ExpandingDotsEffect(
-                  dotWidth: 13,
-                  activeDotColor: Colors.grey.shade800,
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.39),
+                child: SmoothPageIndicator(
+                  axisDirection: Axis.horizontal,
+                  controller: pageviewcontroller,
+                  count: cards.length,
+                  effect: ExpandingDotsEffect(
+                    dotWidth: 13,
+                    activeDotColor: Colors.grey.shade800,
+                  ),
                 ),
               ),
               SizedBox(
@@ -125,13 +129,70 @@ class Homepage extends StatelessWidget {
 
                   // balance for card
                   Cardbalance(),
-                  //pay button
 
+                  //pay button
                   Servicebutton(
                     imageservice: "assets/icons/pay.png",
                     textservice: "pay",
                   ),
                 ],
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.02, left: width * 0.06),
+                child: const Text(
+                  "History",
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              /*
+              History transactions sections
+              */
+              Container(
+                width: width,
+                height: height * 0.3138,
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int) {
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: (ListTile(
+                        contentPadding: const EdgeInsets.only(
+                            top: 5, right: 7, left: 7, bottom: 7),
+                        leading: Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.all(7),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Image.asset(
+                            "assets/icons/transaction-history.png",
+                            height: height * 0.5,
+                          ),
+                        ),
+                        title: Text(
+                          "successfull payment ",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          "Yesterday ",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.grey),
+                        ),
+                        trailing: Text(
+                          "\$100.00",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )),
+                    );
+                  },
+                ),
               )
             ],
           ),
