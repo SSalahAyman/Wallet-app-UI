@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:walletapp/components/card_number.dart';
 import 'package:walletapp/components/home_page_components/app_bar.dart';
+import 'package:walletapp/components/home_page_components/history_transactions.dart';
 import 'package:walletapp/components/home_page_components/my_card.dart';
 import 'package:walletapp/components/home_page_components/services_section/balance_Card.dart';
+import 'package:walletapp/components/models/transaction.dart';
 
 import '../components/home_page_components/services_section/service_button.dart';
 
@@ -43,6 +45,29 @@ class Homepage extends StatelessWidget {
       yourname: "Salah Ayman",
       cardcolor: Color.fromARGB(255, 34, 170, 79),
     ),
+  ];
+
+  List<Transaction> transactions = [
+    Transaction(
+        Statetransimage: "transaction-success",
+        Statetranstext: "Successfull paymant",
+        datetrans: "Yesterday",
+        amounttrans: "\$100.00"),
+    Transaction(
+        Statetransimage: "transaction-success",
+        Statetranstext: "Successfull paymant",
+        datetrans: "Yesterday",
+        amounttrans: "\$100.00"),
+    Transaction(
+        Statetransimage: "transaction-success",
+        Statetranstext: "Successfull paymant",
+        datetrans: "Yesterday",
+        amounttrans: "\$100.00"),
+    Transaction(
+        Statetransimage: "transaction-success",
+        Statetranstext: "Successfull paymant",
+        datetrans: "Yesterday",
+        amounttrans: "\$100.00"),
   ];
   Homepage({super.key});
   static late double width;
@@ -153,44 +178,12 @@ class Homepage extends StatelessWidget {
                 width: width,
                 height: height * 0.3138,
                 child: ListView.builder(
-                  itemBuilder: (BuildContext context, int) {
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: (ListTile(
-                        contentPadding: const EdgeInsets.only(
-                            top: 5, right: 7, left: 7, bottom: 7),
-                        leading: Container(
-                          margin: const EdgeInsets.only(left: 10),
-                          padding: const EdgeInsets.all(7),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Image.asset(
-                            "assets/icons/transaction-history.png",
-                            height: height * 0.5,
-                          ),
-                        ),
-                        title: Text(
-                          "successfull payment ",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                          "Yesterday ",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.grey),
-                        ),
-                        trailing: Text(
-                          "\$100.00",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )),
-                    );
+                  itemCount: transactions.length,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (BuildContext context, index) {
+                    return (Transactionitem(
+                      transitem: transactions[index],
+                    ));
                   },
                 ),
               )
