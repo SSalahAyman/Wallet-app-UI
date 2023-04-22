@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:walletapp/components/models/transaction.dart';
+import 'package:walletapp/models/transaction.dart';
 
 class Transactionitem extends StatelessWidget {
   const Transactionitem({

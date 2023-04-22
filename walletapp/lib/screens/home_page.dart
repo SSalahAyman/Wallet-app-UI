@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:walletapp/components/models/card_number.dart';
+import 'package:walletapp/models/card_number.dart';
 import 'package:walletapp/components/home_page_components/app_bar.dart';
 import 'package:walletapp/components/home_page_components/history_transactions.dart';
 import 'package:walletapp/components/my_card.dart';
 import 'package:walletapp/components/home_page_components/services_section/balance_Card.dart';
-import 'package:walletapp/components/models/transaction.dart';
+import 'package:walletapp/models/transaction.dart';
 
 import '../components/home_page_components/services_section/service_button.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:walletapp/components/models/card_number.dart';
+import 'package:walletapp/models/card_number.dart';
 
 class Mycard extends StatelessWidget {
   const Mycard(

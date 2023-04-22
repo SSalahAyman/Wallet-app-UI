@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:walletapp/components/navbar.dart';
 import 'package:walletapp/screens/home_page.dart';
+import 'package:walletapp/screens/onboarding_screen.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
@@ -109,7 +110,7 @@ class Splashscreen extends StatelessWidget {
               ],
             ),
           ),
-          nextScreen: Navbar(),
+          nextScreen: Onboardingscreens(),
         ),
       ),
     );

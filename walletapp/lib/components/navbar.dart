@@ -29,7 +29,7 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       body: pages.elementAt(index),
       bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: true,
+        // showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedLabelStyle: const TextStyle(
             letterSpacing: 1, fontSize: 13, fontWeight: FontWeight.w500),
