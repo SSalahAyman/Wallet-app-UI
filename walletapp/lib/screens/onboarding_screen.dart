@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:swipeable_button_view/swipeable_button_view.dart';
 import 'package:walletapp/components/navbar.dart';
 import 'package:walletapp/components/onboarding_screen_components.dart/first_intro_screen.dart';
+import 'package:walletapp/components/onboarding_screen_components.dart/next_button.dart';
 import 'package:walletapp/components/onboarding_screen_components.dart/second_intro_screen.dart';
+import 'package:walletapp/components/onboarding_screen_components.dart/slide_button.dart';
 import 'package:walletapp/components/onboarding_screen_components.dart/third_intro_screen.dart';
 
 import '../main.dart';
@@ -19,6 +22,8 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
   static late double height;
 
   String buttontext = "next";
+
+  bool isFinished = false;
 
   List<Widget> intropages = [
     FirstIntroScreen(),
@@ -37,6 +42,12 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
         body: Column(
           children: [
             Container(
+              // decoration: BoxDecoration(
+              //   image: DecorationImage(
+              //       fit: BoxFit.cover,
+              //       image: AssetImage(
+              //           "assets/icons/intro icons/intro_background.png")),
+              // ),
               width: width,
               height: height * 0.82,
               child: PageView(
@@ -47,7 +58,7 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
                     });
                   } else {
                     setState(() {
-                      buttontext = "next";
+                      buttontext = "Next";
                     });
                   }
                 },
@@ -74,28 +85,20 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
                 activeDotColor: Color(0xff00509d),
               ),
             ),
+            SizedBox(
+              height: height * 0.03,
+            ),
 
             /*
               indicator button
             */
             Container(
-              child: buttontext == "next"
-                  ? ElevatedButton(
-                      onPressed: () {
-                        _controller.nextPage(
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeIn);
-                      },
-                      child: Text(buttontext),
-                    )
-                  : ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Navbar();
-                        }));
-                      },
-                      child: Text(buttontext),
+              child: buttontext == "Next"
+                  ? Nextbutton()
+                  : Container(
+                      width: width * 0.8,
+                      height: height * 0.07,
+                      child: Slidebutton(),
                     ),
             ),
           ],

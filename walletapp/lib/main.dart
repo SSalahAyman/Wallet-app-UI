@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:walletapp/screens/splash_screen.dart';
 
 void main() {
@@ -10,10 +11,12 @@ class Walletapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "my wallet",
-      debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        title: "my wallet",
+        debugShowCheckedModeBanner: false,
+        home: Splashscreen(),
+      );
+    });
   }
 }
