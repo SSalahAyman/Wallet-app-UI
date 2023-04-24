@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:walletapp/screens/cart_page.dart';
+import 'package:walletapp/screens/card_page.dart';
 
 class Appbar extends StatelessWidget {
   const Appbar({super.key});
@@ -32,7 +32,7 @@ class Appbar extends StatelessWidget {
         GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Cartpage();
+              return Cardpage();
             }));
           },
           child: Container(

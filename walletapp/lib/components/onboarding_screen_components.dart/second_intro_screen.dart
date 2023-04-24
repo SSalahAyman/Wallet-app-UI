@@ -52,7 +52,6 @@ class SecondIntroScreen extends StatelessWidget {
             radius: width * 0.3,
             child: Image.asset(
               "assets/icons/intro icons/add -card.png",
-              // width: width * 0.7,
             ),
           ),
         ),
@@ -79,10 +78,10 @@ class SecondIntroScreen extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: height * 0.02,
+          height: height * 0.01,
         ),
         Padding(
-          padding: EdgeInsets.only(right: width * 0.2, bottom: height * 0.01),
+          padding: EdgeInsets.only(left: width * 0.01, bottom: height * 0.01),
           child: Text(
             "going to card page and add all your card entries :",
             style: TextStyle(

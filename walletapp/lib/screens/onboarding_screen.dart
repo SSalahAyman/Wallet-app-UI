@@ -21,8 +21,6 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
   static late double width;
   static late double height;
 
-  String buttontext = "next";
-
   bool isFinished = false;
 
   List<Widget> intropages = [
@@ -32,7 +30,7 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
   ];
 
   final _controller = PageController(initialPage: 0);
-
+  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -52,15 +50,9 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
               height: height * 0.82,
               child: PageView(
                 onPageChanged: (value) {
-                  if (value == 2) {
-                    setState(() {
-                      buttontext = "finish";
-                    });
-                  } else {
-                    setState(() {
-                      buttontext = "Next";
-                    });
-                  }
+                  setState(() {
+                    pageIndex = value;
+                  });
                 },
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -93,12 +85,27 @@ class _OnboardingscreensState extends State<Onboardingscreens> {
               indicator button
             */
             Container(
-              child: buttontext == "Next"
-                  ? Nextbutton()
-                  : Container(
+              child: pageIndex == 2
+                  ? Container(
                       width: width * 0.8,
                       height: height * 0.07,
                       child: Slidebutton(),
+                    )
+                  : ElevatedButton(
+                      onPressed: () {
+                        _controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn);
+                      },
+                      child: Text(
+                        "next",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          primary: Color(0xff00509d),
+                          minimumSize: Size(340, 50)),
                     ),
             ),
           ],

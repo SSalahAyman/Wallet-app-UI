@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:walletapp/materials/default_colors.dart';
 import 'package:walletapp/models/card_number.dart';
 import 'package:walletapp/components/home_page_components/app_bar.dart';
 import 'package:walletapp/components/home_page_components/history_transactions.dart';
@@ -77,7 +78,7 @@ class Homepage extends StatelessWidget {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.grey[350],
+      backgroundColor: DefaultColors.defaultGrey,
       body: SafeArea(
         child: Container(
           width: width,

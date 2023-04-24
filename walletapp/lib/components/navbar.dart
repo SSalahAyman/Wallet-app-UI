@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:walletapp/screens/cart_page.dart';
+import 'package:walletapp/screens/card_page.dart';
 import 'package:walletapp/screens/home_page.dart';
 import 'package:walletapp/screens/profile_page.dart';
 import 'package:walletapp/screens/settings_page.dart';
@@ -18,7 +18,7 @@ class _NavbarState extends State<Navbar> {
 
   static List<Widget> pages = [
     Homepage(),
-    Cartpage(),
+    Cardpage(),
     Profilepage(),
     Settingspage(),
   ];

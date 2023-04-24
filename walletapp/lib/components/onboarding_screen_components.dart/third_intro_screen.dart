@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:walletapp/main.dart';
 
 class ThirdIntroScreen extends StatelessWidget {
